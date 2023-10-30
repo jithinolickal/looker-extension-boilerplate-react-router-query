@@ -24,24 +24,25 @@
 
  */
 
-const { excludeNodeModulesExcept } = require('./babel.common')
+ const { excludeNodeModulesExcept } = require('./babel.common')
 
-module.exports = {
-  automock: false,
-  moduleDirectories: ['./node_modules', './packages'],
-  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
-  moduleNameMapper: {},
-  restoreMocks: true,
-  testMatch: ['**/?(*.)(spec|test).(ts|js)?(x)'],
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': 'ts-jest',
-  },
-  transformIgnorePatterns: [excludeNodeModulesExcept.string],
-  testPathIgnorePatterns: [],
-  globals: {
-    'ts-jest': {
-      isolatedModules: true,
-      diagnostics: false,
-    },
-  },
-}
+ module.exports = {
+   automock: false,
+   moduleDirectories: ['./node_modules', './packages'],
+   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+   moduleNameMapper: {},
+   restoreMocks: true,
+   testMatch: ['**/?(*.)(spec|test).(ts|js)?(x)'],
+   transform: {
+     '^.+\\.(js|jsx|ts|tsx)$': 'ts-jest',
+   },
+   transformIgnorePatterns: [excludeNodeModulesExcept.string],
+   testPathIgnorePatterns: [],
+   globals: {
+     'ts-jest': {
+       isolatedModules: true,
+       diagnostics: false,
+     },
+   },
+ }
+ 

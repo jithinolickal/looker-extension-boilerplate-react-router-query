@@ -40,6 +40,7 @@ module.exports = (api) => {
         '@babel/preset-react',
         {
           development: process.env.BABEL_ENV !== 'build',
+          runtime: 'automatic',
         },
       ],
       '@babel/preset-typescript',
@@ -62,6 +63,6 @@ module.exports = (api) => {
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-object-rest-spread',
       '@babel/plugin-transform-runtime',
-    ],
+          ],
   }
 }

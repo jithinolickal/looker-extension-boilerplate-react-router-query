@@ -31,7 +31,10 @@ export const usePostPost = (data) => {
   return useMutation({
     mutationFn: (data) => createPosts(data),
     onSuccess: (data) => {
-      queryClient.invalidateQueries(["postsGET"], { exact: true });
+      queryClient.invalidateQueries({
+        queryKey: ["postsGET"],
+        exact: true
+      });
       console.log("Data returned--", data);
     },
   });

@@ -1,7 +1,8 @@
 // @ts-nocheck
-import React from 'react'
+import React, { useContext } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 import { useGetPosts } from './api/posts';
+import { AppContext } from './shared/AppContext';
 
 export enum ROUTES {
   HOME_ROUTE = '/',
@@ -15,19 +16,35 @@ export enum ROUTES {
   CONFIG_ROUTE = '/config',
 }
 
-const HelloWorld: React.FC = () => {
+
+export const RootRoute = () => {
+  return (
+    <div>1st route - root1</div>
+  )
+}
+export const APIRoute = () => {
   const { data, isLoading, isError } = useGetPosts({});
   console.log("data", data)
+  return (
+    <div>2nd route - API</div>
+  )
+}
+
+
+const HelloWorld: React.FC = () => {
+  const appContext = useContext(AppContext);
+  console.log("appContext", appContext);
+  
   return (
     <>
     <div>HelloWorld</div>
     <Switch>
     <Route path={ROUTES.API_ROUTE} exact>
-        <div>2nd route - API</div>
+        <APIRoute/>
     </Route>
     {/* Have home route as the last route or add a 404 */}
     <Route path={ROUTES.HOME_ROUTE}>  
-        <div>1st route - root1</div>
+        <RootRoute/>
     </Route>
     </Switch>
     <div>

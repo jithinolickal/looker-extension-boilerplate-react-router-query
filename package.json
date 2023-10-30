@@ -1,7 +1,7 @@
 {
   "name": "extension-helloworld-ts",
   "version": "1.1.0",
-  "description": "Sample looker-react-sdk project that uses react-router",
+  "description": "Looker Extension SDK Hello World TypeScript Demo",
   "main": "dist/bundle.js",
   "scripts": {
     "analyze": "export ANALYZE_MODE=static && yarn build",
@@ -12,7 +12,9 @@
     "tsc": "tsc",
     "lint:es": "eslint 'src/**/*.ts{,x}' --cache",
     "lint:es:fix": "eslint 'src/**/*.ts{,x}' --cache --fix",
-    "test": "jest"
+    "test": "jest",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "Looker",
   "license": "MIT",
@@ -21,7 +23,7 @@
   },
   "dependencies": {
     "@looker/extension-sdk-react": "23.16.0",
-    "@tanstack/react-query": "^4.36.1",
+    "@tanstack/react-query": "^5.0.5",
     "axios": "^1.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -38,13 +40,13 @@
     "@babel/preset-react": "^7.22.3",
     "@babel/preset-typescript": "^7.21.5",
     "@babel/runtime": "^7.12.5",
-    "@tanstack/react-query-devtools": "^4.36.1",
+    "@tanstack/react-query-devtools": "^5.4.2",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
     "@types/node": "^14.14.12",
-    "@types/react": "^16.14.2",
-    "@types/react-dom": "^16.9.10",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
     "@types/readable-stream": "^2.3.5",
@@ -72,6 +74,11 @@
     "webpack-bundle-analyzer": "4.9.1",
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "^4.15.1"
+  },
+  "resolutions": {
+    "trim": "0.0.3",
+    "d3-color": "3.1.0",
+    "glob-parent": "5.1.2"
   },
   "babel": {
     "presets": [
@@ -152,20 +159,5 @@
         }
       }
     ]
-  },
-  "prettier": "@looker/prettier-config",
-  "prettierConfig": {
-    "overrides": {
-      "rules": {
-        "trailingComma": "all"
-      }
-    }
-  },
-  "resolutions": {
-    "trim": ">= 1.0.1",
-    "ansi-regex": "5.0.1",
-    "async": ">= 2.6.4",
-    "loader-utils": "= 1.4.2",
-    "source-map": "^0.8.0-beta.0"
   }
 }
